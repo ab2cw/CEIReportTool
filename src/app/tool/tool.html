@@ -1,0 +1,58 @@
+<div id='header'>
+    <div class="content">
+        <h1>CEI Center Reporting</h1>
+    </div>
+</div>
+<div *ngIf="showTool" class = "content">
+  <div class="inputBox">
+    <span>Center: </span>
+    <select [(ngModel)]="center">
+      <option value="HIV/HCV Center" selected>HIV/HCV Center</option>
+      <option value="STD Center">STD Center</option>
+    </select>
+    <span>Report Type: </span>
+    <select [(ngModel)]="type">
+      <option value="Quarter" selected>Quarter</option>
+      <option value="Annual">Annual</option>
+    </select>
+    <span *ngIf="type == 'Quarter'">Number: </span>
+    <select [(ngModel)]="quarterNumber" *ngIf="type == 'Quarter'">
+      <option value="1" selected>1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+    <span>Year: </span>
+    <input type="number" [(ngModel)]="year" style="width: 50px;"/>
+  </div>
+  <div>
+    <tiny-editor [content]="content"[elementId]="'editor'" (onEditorContentChange)="editorChange($event)" (onEditorKeyup)="keyupHandlerFunction($event)"></tiny-editor>
+  </div>
+  <div class="urlDiv">
+    <ul>
+      <li *ngFor="let url of urlPaths; let i = index;">
+        <p><label>URL: </label><input type='text' class="urlInput" [(ngModel)]="url.urlPath" /></p>
+        <p><button class="removeButton" type="button" id={{i}} (click)="removeURL(i)">Remove</button>
+      </li>
+    </ul>
+    <button class="addButton" type="button" (click)="addURL()">Add Tableau URL</button>
+  </div>
+</div>
+
+<div *ngIf="!showTool" class="content">
+  <div style="width: 100%;">
+      <h2>{{center}} {{type}} {{quarterNumber}} {{year}} Report</h2>
+  </div>
+  <div id="reportContent" innerHTML={{content}}>
+  </div>
+  <ul>
+    <li *ngFor="let url of urlPaths; let i = index;">
+    <img [src]='getURL(i)' width="800" height="600">
+    </li>
+  </ul>
+</div>
+
+<div class="submitDiv">
+    <button class="submitButton" type="button" (click)="toggleView()"><label *ngIf="showTool">Generate</label><label *ngIf="!showTool">Back</label></button>
+</div>
+<router-outlet></router-outlet>
