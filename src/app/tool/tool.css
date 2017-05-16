@@ -32,6 +32,7 @@ span{
     margin-top: 20px;
     margin-bottom: 100px;
     text-align: center;
+    clear: both;
 }
 
 .removeButton{
@@ -79,11 +80,42 @@ ul{
 }
 
 .urlInput{
-    width: 680px;
+    width: 100%;
 }
 
 #reportContent{
     margin-top: 10px;
+}
+
+.img-description{
+    color: #7F7F7F;
+    text-align: center;
+    word-break: break-word;
+    font-size: 10pt;
+}
+
+.img-div{
+    width: 350px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.img-div img{
+    width: 100%;
+    height: auto;
+}
+
+.img-list{
+    margin-top: 20px;
+    list-style-type: none;
+	margin:auto;
+	text-align: center;
+	padding: 0;
+}
+
+.img-list-item{
+    display: inline-block;
+    vertical-align: top;
 }
 
 @media print{

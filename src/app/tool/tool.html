@@ -32,7 +32,8 @@
     <ul>
       <li *ngFor="let url of urlPaths; let i = index;">
         <p><label>URL: </label><input type='text' class="urlInput" [(ngModel)]="url.urlPath" /></p>
-        <p><button class="removeButton" type="button" id={{i}} (click)="removeURL(i)">Remove</button>
+        <p><label>Description: </label><input type='text' class="urlInput" [(ngModel)]="url.description" /></p>
+        <button class="removeButton" type="button" id={{i}} (click)="removeURL(i)">Remove</button>
       </li>
     </ul>
     <button class="addButton" type="button" (click)="addURL()">Add Tableau URL</button>
@@ -45,9 +46,12 @@
   </div>
   <div id="reportContent" innerHTML={{content}}>
   </div>
-  <ul>
-    <li *ngFor="let url of urlPaths; let i = index;">
-    <img [src]='getURL(i)' width="800" height="600">
+  <ul class="img-list">
+    <li class="img-list-item" *ngFor="let url of urlPaths; let i = index;">
+      <div class="img-div">
+        <img [src]='getURL(i)'>
+        <p class="img-description">{{url.description}}</p>
+      </div>
     </li>
   </ul>
 </div>

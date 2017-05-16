@@ -33,7 +33,7 @@ export class Tool {
   }
 
   addURL(){
-    this.urlPaths.push({"urlPath": ""});
+    this.urlPaths.push({"urlPath": "", "description":""});
   }
 
   toggleView(){
