@@ -14,7 +14,7 @@ h1{
 }
 
 .content{
-    width: 720px;
+    width: 1080px;
     margin: 0 auto;
 }
 
@@ -95,20 +95,21 @@ ul{
 }
 
 .img-div{
-    width: 350px;
-    margin-right: 5px;
-    margin-left: 5px;
+    width: 520px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 .img-div img{
     width: 100%;
     height: auto;
+    border: 1px solid black;
 }
 
 .img-list{
-    margin-top: 20px;
     list-style-type: none;
 	margin:auto;
+    margin-top: 100px;
 	text-align: center;
 	padding: 0;
 }
@@ -124,5 +125,11 @@ ul{
     }
     .submitButton{
         display: none;
+    }
+    .content{
+        width: 720px;
+    }
+    .img-div{
+        width: 340px;
     }
 }

@@ -24,7 +24,7 @@ export class TinyEditor implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     tinymce.init({
       selector: '#' + this.elementId,
-      width: 720,
+      width: 1080,
       height: 300,
       toolbar: 'alignleft aligncenter alignright alignjustify styleselect formatselect fontselect fontsizeselect | cut copy paste bullist numlist outdent indent blockquote undo redo removeformat | bold italic underline strikethrough subscript superscript',
       plugins: ['link', 'paste', 'lists', 'table', 'media'],
