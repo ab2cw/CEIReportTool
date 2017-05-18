@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { TinyEditor } from '../tools/tiny-editor';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
@@ -9,6 +9,7 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser
   styleUrls: ['./tool.css']
 })
 export class Tool {
+  @ViewChild('imgList') list:ElementRef;
   year = 2017;
   type = "Quarter";
   center = "HIV/HCV Center";
@@ -37,16 +38,7 @@ export class Tool {
   }
 
   toggleView(){
-    console.log(this.content);
-    if(this.type == "Quarter"){
-      console.log(this.type + " " + this.quarterNumber + " " + this.year);
-      console.log(this.content);
-      console.log(this.urlPaths);
-    }
-    else{
-      console.log(this.type + " " + this.year);
-      console.log(this.content);
-      console.log(this.urlPaths);
+    if(this.type != "Quarter"){
       this.quarterNumber = "";
     }
     this.showTool = !this.showTool;

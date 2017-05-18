@@ -94,21 +94,37 @@ ul{
     font-size: 10pt;
 }
 
-.img-div{
+.tile{
     width: 520px;
     margin-right: 10px;
     margin-left: 10px;
+    text-align: center;
 }
 
 .img-div img{
-    width: 100%;
+    max-height: 100%;  
+    max-width: 100%; 
+    width: auto;
     height: auto;
-    border: 1px solid #a0a0a0;
+    position: absolute;  
+    top: 0;  
+    bottom: 0;  
+    left: 0;  
+    right: 0;  
+    margin: auto;
+}
+
+.img-div{
+    border-right: 1px solid #c0c0c0;
+    border-top: 1px solid #c0c0c0;
+    width: 520;
+    height: 520px;
+    position: relative;
+    z-index: 9999;
 }
 
 .img-list{
     list-style-type: none;
-	margin:auto;
     margin-top: 100px;
 	text-align: center;
 	padding: 0;
@@ -128,8 +144,13 @@ ul{
     }
     .content{
         width: 720px;
+        margin-left: 0px;
+    }
+    .tile{
+        width: 340px;
     }
     .img-div{
         width: 340px;
+        height: 340px;
     }
 }

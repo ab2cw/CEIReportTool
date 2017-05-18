@@ -3,7 +3,7 @@
         <h1>CEI Center Reporting</h1>
     </div>
 </div>
-<div *ngIf="showTool" class = "content">
+<div [hidden]="!showTool" class = "content">
   <div class="inputBox">
     <span>Center: </span>
     <select [(ngModel)]="center">
@@ -40,16 +40,18 @@
   </div>
 </div>
 
-<div *ngIf="!showTool" class="content">
+<div [hidden]="showTool" class="content">
   <div style="width: 100%;">
       <h2>{{center}} {{type}} {{quarterNumber}} {{year}} Report</h2>
   </div>
   <div id="reportContent" innerHTML={{content}}>
   </div>
-  <ul class="img-list">
+  <ul class="img-list" #imgList>
     <li class="img-list-item" *ngFor="let url of urlPaths; let i = index;">
-      <div class="img-div">
-        <img [src]='getURL(i)'>
+      <div class="tile">
+        <div class="img-div">
+          <img [src]='getURL(i)'>
+        </div>
         <p class="img-description">{{url.description}}</p>
       </div>
     </li>
